@@ -1,10 +1,14 @@
+//Função que usarei para criar um novo objeto de log
 function newLog(logClass, logText) {
-  return {
+  const newLog = {
     logClass,
     logText,
-  };
+  }
+
+  return newLog;
 }
 
+// Instância do Vue
 new Vue({
   el: "#app",
   data: () => ({
@@ -77,17 +81,17 @@ new Vue({
   },
 
   watch: {
-    hasResult(value) {
+    hasResult(value, oldValue) {
       if (value === true) this.logs = [];
     },
 
-    playerLife(value) {
+    playerLife(value, oldValue) {
       if (value < 0) this.playerLife = 0;
 
       if (value > 100) this.playerLife = 100;
     },
 
-    monsterLife(value) {
+    monsterLife(value, oldValue) {
       if (value < 0) this.monsterLife = 0;
     },
   },
